@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Registration Form</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+        position: relative;
+    }
+    label {
+        font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: calc(100% - 30px);
+        padding: 12px;
+        padding-left: 40px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    .icon-relative .fas,
+    .icon-relative .far {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 10px;
+        font-size: 20px;
+        color: #555555;
+    }
+    input[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    @media screen and (max-width: 600px) {
+        .container {
+            margin: 20px auto;
+            padding: 10px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            padding: 10px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>User Registration Form</h2>
+    {% if message %}
+    <p style="color: red;">{{ message }}</p>
+    {% endif %}
+
+    {% if message2 %}
+    <p style="color:red;">{{ message2 }}</p>
+    {% endif %}
+
+    {% if message3 %}
+    <p style="color:red;">{{ message3 }}</p>
+    {% endif %}
+    
+    <form action="{% url 'register_user' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="user-id">User ID:</label>
+            <div class="icon-relative">
+                <i class="fas fa-user"></i>
+                <input type="text" id="user-id" name="user-id" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <div class="icon-relative">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" name="password" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email ID:</label>
+            <div class="icon-relative">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" name="email" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phone-number">Phone Number:</label>
+            <div class="icon-relative">
+                <i class="fas fa-phone"></i>
+                <input type="text" id="phone-number" name="phone-number" required>
+            </div>
+        </div>
+        <input type="submit" value="Register">
+    </form>
+    <p>Already have an account? <a href="{% url 'login_page' %}">Login</a></p>
+</div>
+
+</body>
+</html>

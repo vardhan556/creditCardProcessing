@@ -1,0 +1,286 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credit Card Website</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+    .container {
+        display: flex;
+    }
+    .navbar {
+        width: 200px;
+        background-color: #333;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-y: auto;
+    }
+    .navbar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .navbar ul li {
+        padding: 10px;
+        border-bottom: 1px solid #666;
+        color: #fff;
+        font-size: 16px;
+    }
+    .navbar ul li:first-child {
+        background-color: #007bff;
+        font-weight: bold;
+        padding: 15px;
+    }
+    .navbar ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    .content {
+        margin-left: 200px;
+        padding: 20px;
+    }
+    h1 {
+        margin-top: 0;
+    }
+    @media screen and (max-width: 600px) {
+        .navbar {
+            width: 100%;
+            position: static;
+            height: auto;
+        }
+        .content {
+            margin-left: 0;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="navbar">
+        <ul>
+            <li>User ID: <strong>{{user_id}}</strong></li>
+            <li><a href="#">Transactions</a></li>
+            <li><a href="#">History</a></li>
+            <li><a href="{% url 'add_account' %}">Add Accounts</a></li>
+            <li><a href="{% url 'buy_product' %}">Buy Product</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Welcome to Your Credit Card Website</h1>
+        <p>This is the homepage content. You can display any relevant information or features here.</p>
+    </div>
+</div>
+
+</body>
+</html>
+
+ -->
+
+
+ <html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        
+        <title>Home Page</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+        <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+    *{
+        margin:0;
+        padding:0;
+        outline:none;
+        border:none;
+        text-decoration:none;
+        box-sizing:border-box;
+        font-family:"Poppins",sans-serif;
+    }
+    body{
+        background: #dfe9f5;
+    }
+    nav{
+        position:absolute;
+        top:0;
+        bottom:0;
+        height:100%;
+        left:0;
+        background:#fff;
+        width:280px;
+        overflow:hidden;
+        transition: width 0.2x linear;
+        box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+
+        }
+    .logo{
+        text-align:center;
+        display:flex;
+        transition:all 0.5s ease;
+        margin:10px 0 0 10px;
+        
+    }
+    .logo img{
+        width: 45px;
+        height:45px;
+        border-radius:50%;
+
+    }
+    .logo span{
+        font-weight:bold;
+        padding-left:15px;
+        font-size:18px;
+        text-transform: uppercase;
+    }
+    a{
+        position:relaive;
+        color:rgb(85,83,83);
+        font-size:14 px;
+        display:table;
+        width:300px;
+        padding:10px;
+    }
+    .fas{
+        position: relative;
+        width: 70px;
+        height: 40px;
+        top: 14px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .nav-item{
+        position: relative;
+        top: 12px;
+        margin-left: 10px;
+
+    }
+    a:hover{
+        background: #eee;
+
+    }
+    nav:hover{
+        width: 280px;
+        transition: all 0.5s ease;
+    }
+    .logout{
+        position: absolute;
+        bottom: 0;
+    }
+    body {
+        background-image: url("https://img.freepik.com/free-vector/global-recognised-credit-card-concept-background_1017-36206.jpg");
+        background-size: cover;
+        font-family: cursive;
+      }
+      .heading{
+        display: flex;
+        align-items: center;
+        margin-left: 50%;
+      }
+    
+      
+      
+
+
+        </style>
+    </head>
+    <body >
+        
+        
+        <nav>
+          <ul>
+            <li>
+                <a href="#" class="logo">
+                    <i class="fas fa-HOME"></i>
+                    <span class="nav-item">HOME</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-user"></i>
+                    <span class="nav-item" style="color: rgb(86, 228, 206);">
+                        {% if user_id %}
+                        <b>{{ user_id }}</b>
+                        {% else %}
+                        <span>user</span>
+                        {% endif %}
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'add_account' %}">
+                  <i class="fas fa-users"></i> 
+                    <span class="nav-item">Add Account</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'buy_product' %}">
+                  <i class="fas fa-users"></i> 
+                    <span class="nav-item">Buy Product</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-wallet"></i>
+                    <span class="nav-item">Bill Payments</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-chart-bar"></i>
+                    <span class="nav-item">Transactions</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-history"></i>
+                    <span class="nav-item">History</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                  <i class="fas fa-users"></i> 
+                    <span class="nav-item">Contact Us</span>
+                </a>
+            </li>
+            
+            {% if user_authenticated %}
+            <li>
+                <a href="{% url 'register_user' %}" class="register">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span class="nav-item">Register</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'login_user' %}" class="register">
+                    <!-- <i class="fa-solid fa-right-to-bracket"></i> -->
+                    <i class="fas fa-right-to-bracket"></i>
+                    <span class="nav-item">Login</span>
+                </a>
+            </li>
+            {% else %}
+            <li>
+                <a href="{% url 'login_user' %}" class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="nav-item">Log Out</span>
+                </a>
+            </li>
+            {% endif %}
+            
+          </ul>  
+        </nav>
+       <!-- <h1 class="heading">CREDIT CARD MANAGEMENT SYSTEM</h1> -->
+
+    </body>
+    
+</html>
+
+
+
